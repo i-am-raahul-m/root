@@ -362,8 +362,8 @@ struct yy_trans_info
 	};
 static const flex_int16_t yy_accept[15] =
     {   0,
-        0,    0,   10,    8,    7,    6,    4,    2,    3,    5,
-        1,    7,    1,    0
+        0,    0,   10,    7,    7,    6,    4,    2,    3,    5,
+        1,    8,    1,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
@@ -443,11 +443,12 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "calc.l"
-#line 2 "calc.l"
-#include "calc.tab.h"
-#line 449 "lex.yy.c"
+#line 1 "ast.l"
+#line 2 "ast.l"
+#include "ast.tab.h"
+#include <string.h>
 #line 450 "lex.yy.c"
+#line 451 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -664,9 +665,9 @@ YY_DECL
 		}
 
 	{
-#line 5 "calc.l"
+#line 6 "ast.l"
 
-#line 669 "lex.yy.c"
+#line 670 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -725,51 +726,51 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 6 "calc.l"
-{yylval = atoi(yytext); return NUMBER;}
+#line 7 "ast.l"
+{ yylval.sval = strdup(yytext); return NUMBER; }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 7 "calc.l"
-{return ADD;}
+#line 9 "ast.l"
+{ return ADD; }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 8 "calc.l"
-{return SUB;}
+#line 10 "ast.l"
+{ return SUB; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 9 "calc.l"
-{return MUL;}
+#line 11 "ast.l"
+{ return MUL; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 10 "calc.l"
-{return DIV;}
+#line 12 "ast.l"
+{ return DIV; }
 	YY_BREAK
 case 6:
 /* rule 6 can match eol */
 YY_RULE_SETUP
-#line 11 "calc.l"
-{return NL;}
+#line 14 "ast.l"
+{ return NL; }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 12 "calc.l"
+#line 16 "ast.l"
 ;
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 13 "calc.l"
+#line 17 "ast.l"
 ;
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 14 "calc.l"
+#line 18 "ast.l"
 ECHO;
 	YY_BREAK
-#line 772 "lex.yy.c"
+#line 773 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1774,7 +1775,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 14 "calc.l"
+#line 18 "ast.l"
 
 
 int yywrap() {
